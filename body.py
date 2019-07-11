@@ -1,5 +1,3 @@
-
-
 class Body:
     def __init__(self, x: int, y: int, width: int, length: int):
         self.x_left_top = x

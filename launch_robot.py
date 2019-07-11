@@ -15,8 +15,10 @@ def main_graphics(stdscr):
     sh, sw = stdscr.getmaxyx()
     box = [[1, 1], [sh - 2, sw - 2]]  # [[ul_y, ul_x], [dr_y, dr_x]]
     textpad.rectangle(stdscr, box[0][0], box[0][1], box[1][0], box[1][1])
-    stdscr.addstr(sh // 2, sw // 2, 'Vacuum Cleaner Controller')
-    stdscr.addstr(sh // 2 + 1, sw // 2, 'for EXIT press anything except control commands')
+    msg1 = 'Vacuum Cleaner Controller'
+    stdscr.addstr(sh // 2, sw // 2 - len(msg1)//2, msg1)
+    msg2 = 'for EXIT press anything except control commands'
+    stdscr.addstr(sh // 2 + 1, sw // 2- len(msg2)//2, msg2)
     stdscr.refresh()
     time.sleep(3)
 
@@ -31,10 +33,6 @@ def main_graphics(stdscr):
     time.sleep(2)
 
     robot.launch_robot_controller(map_config, stdscr)
-
-
-
-
 
 
 if __name__ == '__main__':

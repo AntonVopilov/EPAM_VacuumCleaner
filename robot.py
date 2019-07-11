@@ -1,4 +1,5 @@
-from curses import KEY_RIGHT, KEY_LEFT, KEY_DOWN, KEY_UP, KEY_ENTER
+import time
+from curses import KEY_RIGHT, KEY_LEFT, KEY_DOWN, KEY_UP
 import body
 
 
@@ -29,8 +30,8 @@ class Robot:
         body_buffer = body.Body(x, y, self.width, self.length)
         if any(body_point[0] == self.box[0][1] for body_point in body_buffer.get_body_coord()) or any(
                 body_point[0] == self.box[1][1] for body_point in body_buffer.get_body_coord()) or any(
-                body_point[1] == self.box[1][0] for body_point in body_buffer.get_body_coord()) or any(
-                body_point[1] == self.box[0][0] for body_point in body_buffer.get_body_coord()):
+            body_point[1] == self.box[1][0] for body_point in body_buffer.get_body_coord()) or any(
+            body_point[1] == self.box[0][0] for body_point in body_buffer.get_body_coord()):
             return True
 
         if any(body_point in self.hurdles_points for body_point in body_buffer.get_body_coord()):
@@ -87,7 +88,10 @@ class Robot:
                 self.stdscr.addstr(point[1], point[0], '^')
         self.stdscr.refresh()
 
-import time
+
+
+
+
 def launch_robot_controller(map_config, stdscr=None):
     robot = Robot(2, 2, map_config, stdscr)
     stdscr.addstr(0, 0, str(robot.get_coodrd()))
@@ -99,8 +103,6 @@ def launch_robot_controller(map_config, stdscr=None):
 
         event = stdscr.getch()
 
-
-
         if event in [KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT]:
             stdscr.addstr(0, 10, str(event))
             robot.move_dict[event]()
@@ -110,4 +112,3 @@ def launch_robot_controller(map_config, stdscr=None):
             stdscr.refresh()
             time.sleep(3)
             break
-
