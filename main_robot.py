@@ -1,4 +1,3 @@
-import sys
 import curses
 import argparse
 
@@ -93,7 +92,7 @@ def main_graphics(stdscr, map_width, map_length, hurdles_count):
 
 if __name__ == '__main__':
     parser = createParser()
-    namespace = parser.parse_args(sys.argv[1:])
+    namespace = parser.parse_args()
 
     curses.wrapper(main_graphics, namespace.width,
                    namespace.length, namespace.num_hurdles)
