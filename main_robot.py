@@ -6,7 +6,7 @@ import robot as rob
 from curses import KEY_RIGHT, KEY_LEFT, KEY_DOWN, KEY_UP, KEY_F1, KEY_F2
 
 
-def createParser():
+def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('-wd', '--width', default=100, type=int)
     parser.add_argument('-lg', '--length', default=100, type=int)
@@ -91,7 +91,7 @@ def main_graphics(stdscr, map_width, map_length, hurdles_count):
 
 
 if __name__ == '__main__':
-    parser = createParser()
+    parser = create_parser()
     namespace = parser.parse_args()
 
     curses.wrapper(main_graphics, namespace.width,
