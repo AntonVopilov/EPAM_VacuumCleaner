@@ -17,7 +17,7 @@ python -m pip install windows-curses
 
 Для запуска используйте следующую команду:
 
-python3 python3 main_robot.py -wd 60 -lg 80 -n 100
+python3 main_robot.py -wd 60 -lg 80 -n 100
 
 или
 
